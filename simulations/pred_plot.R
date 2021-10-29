@@ -325,33 +325,6 @@ ggplot(plotDat, aes(X1, X2, fill = c("white", "blue")[ value + 1 ])) +
   theme(axis.title.y = element_text(size = rel(1)))#+
 
 
-theta_true_sub=theta_true[2:19]
-barplot(theta_true_sub,col='blue',ylim=c(-5,3))
-
-plotDat_theta_true=data.frame(cbind(1:18,theta_true_sub))
-colnames(plotDat_theta_true)=c("features",'theta')
-pdf("sim-postsum-theta-true.pdf",width=6,height=2)
-ggplot(plotDat_theta_true)+
-  geom_bar(mapping=aes(x=features,y=theta),stat = 'identity',fill="blue")+
-  ylab("Theta") +
-  xlab("Features") +
-  theme(axis.title.y = element_text(size = rel(1)))
-dev.off()
-
-
-theta_star_sub=theta_star[2:19]
-barplot(theta_star_sub,col='blue',ylim=c(-5,3))
-
-plotDat_theta_star=data.frame(cbind(1:18,theta_star_sub))
-colnames(plotDat_theta_star)=c("features",'theta')
-pdf("sim-postsum-theta-est.pdf",width=6,height=2)
-ggplot(plotDat_theta_star)+
-  geom_bar(mapping=aes(x=features,y=theta),stat = 'identity',fill="blue")+
-  ylab("Theta") +
-  xlab("Features") +
-  theme(axis.title.y = element_text(size = rel(1)))
-dev.off()
-
 
 ######################################
 
@@ -390,15 +363,3 @@ ggplot(plotDat, aes(X1, X2, fill = c("white", "blue")[ value + 1 ])) +
 #scale_x_continuous(limits=c(1, 400), labels = c(1, seq(10, 40, by=10)))+
 #scale_y_continuous(limits=c(1, 400), labels = c(1, seq(100, 400, by=100)))
 
-theta_star_sub=theta_star[2:44]
-barplot(theta_star_sub,col='blue',ylim=c(-5,3))
-
-plotDat_theta_star=data.frame(cbind(1:43,theta_star_sub))
-colnames(plotDat_theta_star)=c("features",'theta')
-pdf("postsum-theta.pdf",width=6,height=2)
-ggplot(plotDat_theta_star)+
-  geom_bar(mapping=aes(x=features,y=theta),stat = 'identity',fill="blue")+
-  ylab("Theta") +
-  xlab("Features") +
-  theme(axis.title.y = element_text(size = rel(1)))
-dev.off()
